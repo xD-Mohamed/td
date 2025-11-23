@@ -166,7 +166,7 @@ func (u *UserEmpty) GetID() (value int64) {
 	return u.ID
 }
 
-// User represents TL type `user#31774388`.
+// User represents TL type `user#20b1422`.
 // Indicates info about a certain user.
 // Unless specified otherwise, when updating the local peer database¹, all fields from
 // the newly received constructor take priority over the old constructor cached locally
@@ -495,7 +495,7 @@ type User struct {
 }
 
 // UserTypeID is TL type id of User.
-const UserTypeID = 0x31774388
+const UserTypeID = 0x20b1422
 
 // construct implements constructor of UserClass.
 func (u User) construct() UserClass { return &u }
@@ -1223,7 +1223,7 @@ func (u *User) SetFlags() {
 // Encode implements bin.Encoder.
 func (u *User) Encode(b *bin.Buffer) error {
 	if u == nil {
-		return fmt.Errorf("can't encode user#31774388 as nil")
+		return fmt.Errorf("can't encode user#20b1422 as nil")
 	}
 	b.PutID(UserTypeID)
 	return u.EncodeBare(b)
@@ -1232,14 +1232,14 @@ func (u *User) Encode(b *bin.Buffer) error {
 // EncodeBare implements bin.BareEncoder.
 func (u *User) EncodeBare(b *bin.Buffer) error {
 	if u == nil {
-		return fmt.Errorf("can't encode user#31774388 as nil")
+		return fmt.Errorf("can't encode user#20b1422 as nil")
 	}
 	u.SetFlags()
 	if err := u.Flags.Encode(b); err != nil {
-		return fmt.Errorf("unable to encode user#31774388: field flags: %w", err)
+		return fmt.Errorf("unable to encode user#20b1422: field flags: %w", err)
 	}
 	if err := u.Flags2.Encode(b); err != nil {
-		return fmt.Errorf("unable to encode user#31774388: field flags2: %w", err)
+		return fmt.Errorf("unable to encode user#20b1422: field flags2: %w", err)
 	}
 	b.PutLong(u.ID)
 	if u.Flags.Has(0) {
@@ -1259,18 +1259,18 @@ func (u *User) EncodeBare(b *bin.Buffer) error {
 	}
 	if u.Flags.Has(5) {
 		if u.Photo == nil {
-			return fmt.Errorf("unable to encode user#31774388: field photo is nil")
+			return fmt.Errorf("unable to encode user#20b1422: field photo is nil")
 		}
 		if err := u.Photo.Encode(b); err != nil {
-			return fmt.Errorf("unable to encode user#31774388: field photo: %w", err)
+			return fmt.Errorf("unable to encode user#20b1422: field photo: %w", err)
 		}
 	}
 	if u.Flags.Has(6) {
 		if u.Status == nil {
-			return fmt.Errorf("unable to encode user#31774388: field status is nil")
+			return fmt.Errorf("unable to encode user#20b1422: field status is nil")
 		}
 		if err := u.Status.Encode(b); err != nil {
-			return fmt.Errorf("unable to encode user#31774388: field status: %w", err)
+			return fmt.Errorf("unable to encode user#20b1422: field status: %w", err)
 		}
 	}
 	if u.Flags.Has(14) {
@@ -1280,7 +1280,7 @@ func (u *User) EncodeBare(b *bin.Buffer) error {
 		b.PutVectorHeader(len(u.RestrictionReason))
 		for idx, v := range u.RestrictionReason {
 			if err := v.Encode(b); err != nil {
-				return fmt.Errorf("unable to encode user#31774388: field restriction_reason element with index %d: %w", idx, err)
+				return fmt.Errorf("unable to encode user#20b1422: field restriction_reason element with index %d: %w", idx, err)
 			}
 		}
 	}
@@ -1292,39 +1292,39 @@ func (u *User) EncodeBare(b *bin.Buffer) error {
 	}
 	if u.Flags.Has(30) {
 		if u.EmojiStatus == nil {
-			return fmt.Errorf("unable to encode user#31774388: field emoji_status is nil")
+			return fmt.Errorf("unable to encode user#20b1422: field emoji_status is nil")
 		}
 		if err := u.EmojiStatus.Encode(b); err != nil {
-			return fmt.Errorf("unable to encode user#31774388: field emoji_status: %w", err)
+			return fmt.Errorf("unable to encode user#20b1422: field emoji_status: %w", err)
 		}
 	}
 	if u.Flags2.Has(0) {
 		b.PutVectorHeader(len(u.Usernames))
 		for idx, v := range u.Usernames {
 			if err := v.Encode(b); err != nil {
-				return fmt.Errorf("unable to encode user#31774388: field usernames element with index %d: %w", idx, err)
+				return fmt.Errorf("unable to encode user#20b1422: field usernames element with index %d: %w", idx, err)
 			}
 		}
 	}
 	if u.Flags2.Has(5) {
 		if err := u.StoriesMaxID.Encode(b); err != nil {
-			return fmt.Errorf("unable to encode user#31774388: field stories_max_id: %w", err)
+			return fmt.Errorf("unable to encode user#20b1422: field stories_max_id: %w", err)
 		}
 	}
 	if u.Flags2.Has(8) {
 		if u.Color == nil {
-			return fmt.Errorf("unable to encode user#31774388: field color is nil")
+			return fmt.Errorf("unable to encode user#20b1422: field color is nil")
 		}
 		if err := u.Color.Encode(b); err != nil {
-			return fmt.Errorf("unable to encode user#31774388: field color: %w", err)
+			return fmt.Errorf("unable to encode user#20b1422: field color: %w", err)
 		}
 	}
 	if u.Flags2.Has(9) {
 		if u.ProfileColor == nil {
-			return fmt.Errorf("unable to encode user#31774388: field profile_color is nil")
+			return fmt.Errorf("unable to encode user#20b1422: field profile_color is nil")
 		}
 		if err := u.ProfileColor.Encode(b); err != nil {
-			return fmt.Errorf("unable to encode user#31774388: field profile_color: %w", err)
+			return fmt.Errorf("unable to encode user#20b1422: field profile_color: %w", err)
 		}
 	}
 	if u.Flags2.Has(12) {
@@ -1342,10 +1342,10 @@ func (u *User) EncodeBare(b *bin.Buffer) error {
 // Decode implements bin.Decoder.
 func (u *User) Decode(b *bin.Buffer) error {
 	if u == nil {
-		return fmt.Errorf("can't decode user#31774388 to nil")
+		return fmt.Errorf("can't decode user#20b1422 to nil")
 	}
 	if err := b.ConsumeID(UserTypeID); err != nil {
-		return fmt.Errorf("unable to decode user#31774388: %w", err)
+		return fmt.Errorf("unable to decode user#20b1422: %w", err)
 	}
 	return u.DecodeBare(b)
 }
@@ -1353,11 +1353,11 @@ func (u *User) Decode(b *bin.Buffer) error {
 // DecodeBare implements bin.BareDecoder.
 func (u *User) DecodeBare(b *bin.Buffer) error {
 	if u == nil {
-		return fmt.Errorf("can't decode user#31774388 to nil")
+		return fmt.Errorf("can't decode user#20b1422 to nil")
 	}
 	{
 		if err := u.Flags.Decode(b); err != nil {
-			return fmt.Errorf("unable to decode user#31774388: field flags: %w", err)
+			return fmt.Errorf("unable to decode user#20b1422: field flags: %w", err)
 		}
 	}
 	u.Self = u.Flags.Has(10)
@@ -1380,7 +1380,7 @@ func (u *User) DecodeBare(b *bin.Buffer) error {
 	u.AttachMenuEnabled = u.Flags.Has(29)
 	{
 		if err := u.Flags2.Decode(b); err != nil {
-			return fmt.Errorf("unable to decode user#31774388: field flags2: %w", err)
+			return fmt.Errorf("unable to decode user#20b1422: field flags2: %w", err)
 		}
 	}
 	u.BotCanEdit = u.Flags2.Has(1)
@@ -1394,70 +1394,70 @@ func (u *User) DecodeBare(b *bin.Buffer) error {
 	{
 		value, err := b.Long()
 		if err != nil {
-			return fmt.Errorf("unable to decode user#31774388: field id: %w", err)
+			return fmt.Errorf("unable to decode user#20b1422: field id: %w", err)
 		}
 		u.ID = value
 	}
 	if u.Flags.Has(0) {
 		value, err := b.Long()
 		if err != nil {
-			return fmt.Errorf("unable to decode user#31774388: field access_hash: %w", err)
+			return fmt.Errorf("unable to decode user#20b1422: field access_hash: %w", err)
 		}
 		u.AccessHash = value
 	}
 	if u.Flags.Has(1) {
 		value, err := b.String()
 		if err != nil {
-			return fmt.Errorf("unable to decode user#31774388: field first_name: %w", err)
+			return fmt.Errorf("unable to decode user#20b1422: field first_name: %w", err)
 		}
 		u.FirstName = value
 	}
 	if u.Flags.Has(2) {
 		value, err := b.String()
 		if err != nil {
-			return fmt.Errorf("unable to decode user#31774388: field last_name: %w", err)
+			return fmt.Errorf("unable to decode user#20b1422: field last_name: %w", err)
 		}
 		u.LastName = value
 	}
 	if u.Flags.Has(3) {
 		value, err := b.String()
 		if err != nil {
-			return fmt.Errorf("unable to decode user#31774388: field username: %w", err)
+			return fmt.Errorf("unable to decode user#20b1422: field username: %w", err)
 		}
 		u.Username = value
 	}
 	if u.Flags.Has(4) {
 		value, err := b.String()
 		if err != nil {
-			return fmt.Errorf("unable to decode user#31774388: field phone: %w", err)
+			return fmt.Errorf("unable to decode user#20b1422: field phone: %w", err)
 		}
 		u.Phone = value
 	}
 	if u.Flags.Has(5) {
 		value, err := DecodeUserProfilePhoto(b)
 		if err != nil {
-			return fmt.Errorf("unable to decode user#31774388: field photo: %w", err)
+			return fmt.Errorf("unable to decode user#20b1422: field photo: %w", err)
 		}
 		u.Photo = value
 	}
 	if u.Flags.Has(6) {
 		value, err := DecodeUserStatus(b)
 		if err != nil {
-			return fmt.Errorf("unable to decode user#31774388: field status: %w", err)
+			return fmt.Errorf("unable to decode user#20b1422: field status: %w", err)
 		}
 		u.Status = value
 	}
 	if u.Flags.Has(14) {
 		value, err := b.Int()
 		if err != nil {
-			return fmt.Errorf("unable to decode user#31774388: field bot_info_version: %w", err)
+			return fmt.Errorf("unable to decode user#20b1422: field bot_info_version: %w", err)
 		}
 		u.BotInfoVersion = value
 	}
 	if u.Flags.Has(18) {
 		headerLen, err := b.VectorHeader()
 		if err != nil {
-			return fmt.Errorf("unable to decode user#31774388: field restriction_reason: %w", err)
+			return fmt.Errorf("unable to decode user#20b1422: field restriction_reason: %w", err)
 		}
 
 		if headerLen > 0 {
@@ -1466,7 +1466,7 @@ func (u *User) DecodeBare(b *bin.Buffer) error {
 		for idx := 0; idx < headerLen; idx++ {
 			var value RestrictionReason
 			if err := value.Decode(b); err != nil {
-				return fmt.Errorf("unable to decode user#31774388: field restriction_reason: %w", err)
+				return fmt.Errorf("unable to decode user#20b1422: field restriction_reason: %w", err)
 			}
 			u.RestrictionReason = append(u.RestrictionReason, value)
 		}
@@ -1474,28 +1474,28 @@ func (u *User) DecodeBare(b *bin.Buffer) error {
 	if u.Flags.Has(19) {
 		value, err := b.String()
 		if err != nil {
-			return fmt.Errorf("unable to decode user#31774388: field bot_inline_placeholder: %w", err)
+			return fmt.Errorf("unable to decode user#20b1422: field bot_inline_placeholder: %w", err)
 		}
 		u.BotInlinePlaceholder = value
 	}
 	if u.Flags.Has(22) {
 		value, err := b.String()
 		if err != nil {
-			return fmt.Errorf("unable to decode user#31774388: field lang_code: %w", err)
+			return fmt.Errorf("unable to decode user#20b1422: field lang_code: %w", err)
 		}
 		u.LangCode = value
 	}
 	if u.Flags.Has(30) {
 		value, err := DecodeEmojiStatus(b)
 		if err != nil {
-			return fmt.Errorf("unable to decode user#31774388: field emoji_status: %w", err)
+			return fmt.Errorf("unable to decode user#20b1422: field emoji_status: %w", err)
 		}
 		u.EmojiStatus = value
 	}
 	if u.Flags2.Has(0) {
 		headerLen, err := b.VectorHeader()
 		if err != nil {
-			return fmt.Errorf("unable to decode user#31774388: field usernames: %w", err)
+			return fmt.Errorf("unable to decode user#20b1422: field usernames: %w", err)
 		}
 
 		if headerLen > 0 {
@@ -1504,48 +1504,48 @@ func (u *User) DecodeBare(b *bin.Buffer) error {
 		for idx := 0; idx < headerLen; idx++ {
 			var value Username
 			if err := value.Decode(b); err != nil {
-				return fmt.Errorf("unable to decode user#31774388: field usernames: %w", err)
+				return fmt.Errorf("unable to decode user#20b1422: field usernames: %w", err)
 			}
 			u.Usernames = append(u.Usernames, value)
 		}
 	}
 	if u.Flags2.Has(5) {
 		if err := u.StoriesMaxID.Decode(b); err != nil {
-			return fmt.Errorf("unable to decode user#31774388: field stories_max_id: %w", err)
+			return fmt.Errorf("unable to decode user#20b1422: field stories_max_id: %w", err)
 		}
 	}
 	if u.Flags2.Has(8) {
 		value, err := DecodePeerColor(b)
 		if err != nil {
-			return fmt.Errorf("unable to decode user#31774388: field color: %w", err)
+			return fmt.Errorf("unable to decode user#20b1422: field color: %w", err)
 		}
 		u.Color = value
 	}
 	if u.Flags2.Has(9) {
 		value, err := DecodePeerColor(b)
 		if err != nil {
-			return fmt.Errorf("unable to decode user#31774388: field profile_color: %w", err)
+			return fmt.Errorf("unable to decode user#20b1422: field profile_color: %w", err)
 		}
 		u.ProfileColor = value
 	}
 	if u.Flags2.Has(12) {
 		value, err := b.Int()
 		if err != nil {
-			return fmt.Errorf("unable to decode user#31774388: field bot_active_users: %w", err)
+			return fmt.Errorf("unable to decode user#20b1422: field bot_active_users: %w", err)
 		}
 		u.BotActiveUsers = value
 	}
 	if u.Flags2.Has(14) {
 		value, err := b.Long()
 		if err != nil {
-			return fmt.Errorf("unable to decode user#31774388: field bot_verification_icon: %w", err)
+			return fmt.Errorf("unable to decode user#20b1422: field bot_verification_icon: %w", err)
 		}
 		u.BotVerificationIcon = value
 	}
 	if u.Flags2.Has(15) {
 		value, err := b.Long()
 		if err != nil {
-			return fmt.Errorf("unable to decode user#31774388: field send_paid_messages_stars: %w", err)
+			return fmt.Errorf("unable to decode user#20b1422: field send_paid_messages_stars: %w", err)
 		}
 		u.SendPaidMessagesStars = value
 	}
@@ -2414,7 +2414,7 @@ const UserClassName = "User"
 //  }
 //  switch v := g.(type) {
 //  case *tg.UserEmpty: // userEmpty#d3bc4b7a
-//  case *tg.User: // user#31774388
+//  case *tg.User: // user#20b1422
 //  default: panic(v)
 //  }
 type UserClass interface {
@@ -2499,7 +2499,7 @@ func DecodeUser(buf *bin.Buffer) (UserClass, error) {
 		}
 		return &v, nil
 	case UserTypeID:
-		// Decoding user#31774388.
+		// Decoding user#20b1422.
 		v := User{}
 		if err := v.Decode(buf); err != nil {
 			return nil, fmt.Errorf("unable to decode UserClass: %w", err)
